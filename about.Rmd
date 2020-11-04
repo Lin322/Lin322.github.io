@@ -1,9 +1,41 @@
 ---
-title: "About"
+title: "Academic and Professional Experience"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
-### About this site
 
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
+## Edducation Background
 
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+### Columbia University
+
+**Mailman School of Public Health,** New York, NY, 2019-2021
+
+**Master of Public Health (MPH), Epidemiology**, Certificate in Applied Biostatistics, expected May 2021
+ 
+ 
+###  Tianjin Medical University
+
+**School of Public Halth,** Tianjin, China,  2014-2018
+
+**Bachelor of Management**,Public Affairs (Health Service) Management, July 2018. 
+ 
+
+## Research and Intership Experience
+
+### TIANJIN 4TH CENTER HOSPITAL
+**Science and Education Division**, Tianjin, China, Nov.2017 - Feb.2018
+
+* Assisted physicians with improving analysis methods in research.
+* Established a framework to record hospital research achievement in the past ten years.
+* Facilitated nearly 200 outpatients with self service registration machines, decreasing waiting time by
+more than half.
+* Conducted focus group interviews with outpatients. Used chi-square test to confirm the queue time decreases were significant.
+* Wrote the first draft of operation guides onself registration, which was appreciated by director and used department wide.
+
+
+### HENAN PROVINCE CENTER FOR DISEASE PREVENTION AND CONTROL
+** Laboratory Assistant**, Henan, China, Jul - Sep, 2017
+

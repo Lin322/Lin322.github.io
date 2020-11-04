@@ -1,7 +1,21 @@
 ---
-title: "Holy cow!"
+title: "Lin Feng's FIRST WEBSITE!"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
-### I have a webpage!
+## Hello! 
 
-And I can put all kinds of stuff on it!
+Glad to see you here. 
+This is my first self-coded website. Hope you enjoy it!
+
+## Academic and Professional Experience
+
+* [Online Resume](about.html)
+
+## Contact Me
+
+* [LinkedIn](https://www.linkedin.com/in/lin-feng-columbiamph/)
+* [Facebook](https://www.facebook.com/lin.feng.716195)
