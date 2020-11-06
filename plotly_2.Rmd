@@ -57,6 +57,7 @@ instacart %>%
 ```
 
 
+
 ## Box Plot:
 continous y and categorical x
 
@@ -66,10 +67,11 @@ We want know the distribution of days before reorder in those four aisles: eggs,
 ```
 
 
+
 ## Bar Plot: 
 count y and categorical x
 
-We want to yake a look at the distribution of total number fresh vegatable orders among 24 hours (No orders at 3 am or 4 am). 
+We want to take a look at the distribution of total number fresh vegatable orders among 24 hours (No orders at 3 am or 4 am). 
 ```{r}
 instacart %>% 
   filter(
