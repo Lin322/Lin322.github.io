@@ -13,58 +13,29 @@ library(p8105.datasets)
 
 library(plotly)
 library(htmlwidgets)
+library(sqldf)
 ```
 
 ```{r data}
 data("instacart")
-head(instacart, 10)
-
-instacart %>% 
-  group_by(department) %>% 
-  count() %>% 
-  arrange(n)
-
-instacart %>% 
-  filter(
-    department =="household"
-  ) %>% 
-   group_by(aisle) %>% 
-  count() %>% 
-  arrange(n)
+head(instacart, 5)
 ```
 
-## Scatter Plot: 
-continous x and y
+## Bubble Plot: 
 
-We want to know as the times of reorder increase, will the days before reorder be more fixed (the reason can be, for example, the customers have learned how long it will take to consume the prior-ordered stuff). We will use orders of "Large Alfresco Eggs" to make a plot, because in general the amount of eggs used is fairly constant among long period, and the "Large Alfresco Eggs" is the best seller . 
+We want to know the sales volumes of different aisle in household department. With the plot below we can help the warehouse to prepare large volume products early. 
 
 ```{r}
-
-#find out the best seller in "eggs"
-
-instacart %>%
-  select(aisle, product_name) %>% 
-    filter( 
-    aisle == "eggs"
+instacart %>% 
+ filter(
+   department == "household", 
+   order_hour_of_day %in% 12:18
   ) %>% 
-  group_by(product_name) %>% 
-  count() %>% 
-  arrange()
-
-#We want to exclude first order and the disturbance term of " days_since_prior_order" = 30, because we can never know long exactly it takes to reorder
-instacart %>%
-  filter(
-    days_since_prior_order %in% 1:29,
-    order_number >= 3, 
-    product_name == "Large Alfresco Eggs"
-  ) %>% 
-  mutate(
-    order_number = as.numeric(order_number),
-    days_since_prior_order = as.numeric(days_since_prior_order)) %>% 
-  select(order_number, days_since_prior_order) %>% 
-  arrange(days_since_prior_order) %>% 
+  group_by(order_hour_of_day) %>% 
+  count(aisle) %>% 
   plot_ly(
-    x = ~order_number, y = ~days_since_prior_order, type = 'scatter', mode = "markers")
+    x = ~aisle, y = ~order_hour_of_day, color = ~aisle, type = "scatter", mode = "markers", marker = list(size = ~n/15, opacity = 0.5))
+
 
 
 ```
@@ -72,7 +43,6 @@ instacart %>%
 
 
 ## Box Plot:
-continous y and categorical x
 
 We want know the distribution of days before reorder in household department. 
 ```{r}
@@ -98,9 +68,9 @@ instacart %>%
 
 
 ## Bar Plot: 
-count y and categorical x
 
 We want to take a look at the distribution of total number fresh vegatable orders among 24 hours (No orders at 3 am or 4 am). 
+
 ```{r}
 instacart %>% 
   filter(
