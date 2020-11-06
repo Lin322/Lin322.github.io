@@ -1,13 +1,13 @@
 ---
-title: "Plotly"
+title: "Instacart Information Dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-
 ```{r setup, include=FALSE}
+library(flexdashboard)
 library(tidyverse)
 library(p8105.datasets)
 
@@ -15,14 +15,16 @@ library(plotly)
 library(htmlwidgets)
 ```
 
-```{r data}
+```{r include=FALSE}
 data("instacart")
 head(instacart, 5)
 ```
 
-## Bubble Plot: 
 
-We want to know the sales volumes of different aisle in household department. With the plot below we can help the warehouse to prepare large volume products early. 
+Column {data-width=550}
+-----------------------------------------------------------------------
+
+### Bubble Plot
 
 ```{r}
 instacart %>% 
@@ -36,18 +38,14 @@ instacart %>%
     x = ~aisle, y = ~order_hour_of_day, color = ~aisle, type = "scatter", mode = "markers", marker = list(size = ~n/15, opacity = 0.5))
 
 
-
 ```
 
+Column {data-width=450}
+-----------------------------------------------------------------------
 
+### Box Plot
 
-## Box Plot:
-
-We want know the distribution of days before reorder in household department. 
 ```{r}
-
-#We want to exclude first order and the disturbance term of " days_since_prior_order" = 30, because we can never know long exactly it takes to reorder. 
-
 instacart %>% 
   filter(
     days_since_prior_order %in% 1:29, 
@@ -61,14 +59,9 @@ instacart %>%
     x = ~aisle, y = ~days_since_prior_order, color = ~aisle, type = "box", 
     colors = "viridis"
   )
-  
 ```
 
-
-
-## Bar Plot: 
-
-We want to take a look at the distribution of total number fresh vegatable orders among 24 hours (No orders at 3 am or 4 am). 
+### Bar Plot
 
 ```{r}
 instacart %>% 
