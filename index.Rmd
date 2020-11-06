@@ -11,6 +11,10 @@ output:
 Glad to see you here. 
 This is my first self-coded website. Hope you enjoy it!
 
+## Recent Activity
+
+I made simple visualization on Instacart. You can find the [Rmd file](https://lin322.github.io/plotly_2.html) and the [Dashbord](https://lin322.github.io/dashboard.html) on this site. 
+
 ## Academic and Professional Experience
 
 * [Online Resume](about.html)
